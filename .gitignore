@@ -1,0 +1,11 @@
+# Build outputs
+*.rom
+*.bin
+*.cfg
+*.lst
+*.sym
+*.smap
+*.o
+
+# OS files
+.DS_Store
