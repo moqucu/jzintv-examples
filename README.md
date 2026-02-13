@@ -5,9 +5,11 @@ Example Intellivision programs, a shared ASM library, and macros for use with th
 ## Repository Structure
 
 ```
-examples/      38 example/demo projects
+examples/      Example/demo projects
+config/        Keyboard mapping and configuration files (.kbd)
 library/       Shared assembly routines (print, math, memcpy, etc.)
 macro/         Shared macro files (utilities, STIC, PSG, etc.)
+tools/         Helper utilities and legacy conversion tools
 ```
 
 ## Examples
@@ -20,38 +22,21 @@ macro/         Shared macro files (utilities, STIC, PSG, etc.)
 | bncpix | Bouncing pixels |
 | life | Conway's Game of Life (colored squares) |
 | gram\_scroll | GRAM-based scrolling (8px spacing) |
-| gram\_scroll2 | GRAM-based scrolling (16px spacing) |
 | handdemo | Hand controller input using RUNQ/SCANHAND |
-| balls1 | MOB movement and interaction |
-| balls2 | Balls1 rewritten with task-queue model |
-| tagalong | Tag-Along Todd — controller input and AI |
-| tagalong2 | Tag-Along Todd 2 — full game |
-| tagalong2v | Tag-Along Todd 2 with Intellivoice |
-| tagalong2v\_cp1600x | Tag-Along Todd 2v with CP-1600X extensions |
-| tank | Tank game with MOBs and status display |
-| spacepat | Space Patrol — full game |
 | 4-tris | Tetris-style game |
-| geese | Geese demo |
-| sky | SDK-1600 eye candy |
-| lines | Line drawing |
-| synth | Synthesizer |
-| bankdemo | Intellicart bankswitching demo |
-| banktest | Intellicart memory tester with bankswitching |
-| bankworld | Spinning world with bankswitching |
-| csumexec | EXEC/ROM checksum identifier |
-| mob\_test | MOB attribute tester |
-| mem\_test | Intellicart memory tester |
-| mem\_test\_ra39600 | Memory tester (RA-3-9600) |
-| task | Event-driven multitasking routines |
-| counttap | Tap counter |
-| ecs\_kbd | ECS keyboard scanner |
-| ecscable | ECScable monitor |
-| cc3serial | CC3 serial interface |
-| jlpserial | JLP serial interface |
-| kbd\_test | Keyboard tester |
-| syn\_test | Synthesis tester |
-| fileio | File I/O |
-| terminal | ANSI terminal |
+| spacepat | Space Patrol — full game |
+| intellicart | Intellicart bankswitching examples |
+| sdk\_examples| Examples for AS1600 directives and features |
+| (many others) | See the `examples/` directory for the full list |
+
+## Documentation
+
+For tutorials and detailed hardware references, visit the **[Intellivision Development Wiki](https://github.com/moqucu/jzintv-examples/wiki)**.
+
+Key documentation pages:
+- **[Introduction to CP-1600 Programming](https://github.com/moqucu/jzintv-examples/wiki/Introduction-to-CP-1600-Programming)**
+- **[AS1600 Assembler Reference](https://github.com/moqucu/jzintv-examples/wiki/AS1600-Assembler-Reference)**
+- **[Master Component Hardware](https://github.com/moqucu/jzintv-examples/wiki/Master-Component-Hardware)**
 
 ## Building
 
@@ -61,45 +46,9 @@ Each example can be built with the [AS1600](https://github.com/moqucu/jzintv) as
 as1600 -o program.rom -l program.lst program.asm
 ```
 
-## Library
+## Library & Macros
 
-The `library/` directory contains reusable assembly routines:
-
-- **gimini.asm** — Constants and masks for Intellivision programming
-- **print.asm** — String display routines
-- **fillmem.asm** — FILLMEM, FILLZERO, CLRSCR
-- **memcpy.asm** / **memcmp.asm** / **memset.asm** / **memunpk.asm** — Memory operations
-- **rand.asm** — Random number generation
-- **hex16.asm** / **hexdisp.asm** — Hexadecimal display
-- **prnum16.asm** / **prnum32.asm** — Decimal number printing
-- **dec16dec32.asm** / **dec16only.asm** — Decrement routines
-- **dividivu.asm** / **fastdivu.asm** / **idiv.asm** / **jdiv.asm** — Division
-- **sqrt.asm** / **isqrt.asm** — Square root
-- **dist\_fast.asm** — Fast Euclidean distance estimation
-- **colorsq.asm** / **colorsq\_sv.asm** / **colorsq\_clip.asm** — Colored squares graphics
-- **ic\_banksw.asm** — Intellicart bankswitching
-- **ivoice.asm** / **saynum16.asm** / **resrom.asm** — Intellivoice support
-- **al2.asm** — SP0256 allophone library
-- **jlp\_accel.asm** / **jlp\_savegame.asm** — JLP acceleration and save support
-- **initmem.asm** — Memory initialization
-- **wnk.asm** — Wait-and-acknowledge routine
-- **randfast.asm** — Fast random number generation
-
-## Macros
-
-The `macro/` directory provides macros to simplify programming:
-
-- **util.mac** — Generic utility macros
-- **stic.mac** — STIC (display) macros
-- **psg.mac** — PSG (sound) macros
-- **print.mac** — PRINT routine macros
-- **gfx.mac** — Graphics macros
-- **cart.mac** — Cartridge setup macros
-- **initmem.mac** — Memory initialization macros
-- **default.mac** — Default definitions
-- **emu\_link.mac** / **el\_event.mac** / **el\_fileio.mac** / **el\_joy.mac** — Emulator link macros
-- **cp1600x.mac** — CP-1600X extended instruction macros
-- **wide\_gfx.mac** — Wide graphics macros
+The `library/` and `macro/` directories contain reusable routines and definitions to simplify Intellivision development. See the [Wiki](https://github.com/moqucu/jzintv-examples/wiki) for a full list of available modules.
 
 ## License
 
